@@ -17,7 +17,7 @@ import { Ng2ViewDeclaration } from '@uirouter/angular';
 import { TutorialsComponent } from './projects/states/tutorials/tutorials.component';
 import {PortfoliosComponent} from './units/states/portfolios/portfolios.component';
 import { RolloverComponent } from './units/states/rollover/rollover.component';
-import {InboxComponent} from './units/states/tasks/inbox/inbox.component';
+
 /*
  * Use this file to store any states that are sourced by angular components.
  */
@@ -457,33 +457,6 @@ const PortfoliosState: NgHybridStateDeclaration = {
 };
 
 
-const InboxState: NgHybridStateDeclaration = {
-  name: 'units/tasks/inbox',
-  url: '/units/:unitId/tasks/inbox/:taskKey',
-  params: {
-    taskKey: {dynamic: true}
-  },
-  resolve: {
-    unitId: [
-      '$stateParams',
-      function ($stateParams) {
-        return $stateParams.unitId;
-      },
-    ],
-  },
-  views: {
-    main: {
-      component: InboxComponent,
-    },
-  },
-  data: {
-    task: 'Task Inbox',
-    pageTitle: '_Home_',
-    roleWhitelist: ['Tutor', 'Convenor', 'Admin', 'Auditor'],
-  },
-};
-
-
 const RolloverState: NgHybridStateDeclaration = {
   name: 'units/rollover',
   url: '/units/:unitId/rollover',
@@ -531,6 +504,5 @@ export const doubtfireStates = [
   ScormPlayerStudentReviewState,
   TutorialState,
   PortfoliosState,
-  InboxState, 	
   RolloverState,
 ];
