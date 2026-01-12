@@ -55,3 +55,17 @@ Creating a standalone Angular route requires either:
 1. Should we do hybrid migration (keep AngularJS parents) or full Angular?
 2. Is refactoring the component in scope for this task?
 3. How much time is allocated for this migration?
+
+---
+
+## Summary of Approaches
+
+### Hybrid Approach
+Keep the AngularJS parent states and only migrate the inbox child route. 
+The component still gets data through scope inheritance. Less work but not a complete migration - we'd need to 
+revisit this later when the parents are migrated.
+
+### Full Angular Approach  
+Completely remove AngularJS dependencies by refactoring the component to fetch its own data. 
+This is the proper solution but requires migrating the parent states first (units/index and units/tasks), 
+which haven't been migrated yet. More work and currently blocked by dependencies.
